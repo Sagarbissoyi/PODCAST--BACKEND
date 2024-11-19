@@ -21,6 +21,10 @@ app.use(
   conn()
 app.use(express.json());
 app.use(cookieParser());
+app.use(express.urlencoded({extended:true}));
+app.get("/",(req,res)=>{
+res.send("working")
+})
 app.use("/uploads",express.static("uploads"));
 
 //all routes
