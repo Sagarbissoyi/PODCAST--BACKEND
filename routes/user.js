@@ -77,7 +77,7 @@ if( !isMatch ){
 res.cookie("podcasterUserToken",token,{
 httpOnly:true,
 maxAge: 30 * 24 * 60 * 60 * 100, ///30days
-secure:process.env.NODE_ENV === "production",
+secure:true,
 sameSite: "None",
 });
 return res.status(200).json({
