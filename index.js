@@ -12,7 +12,7 @@ require("dotenv").config();
 require("./conn/conn");
 app.use(
   cors({
-    origin: "https://podcast-frontend-7qk75nm44-sagars-projects-d57435ad.vercel.app",
+    origin: "https://podcast-frontend-dusky.vercel.app",
     credentials: true,
   }));
 
