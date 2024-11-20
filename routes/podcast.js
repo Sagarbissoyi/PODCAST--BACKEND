@@ -218,6 +218,7 @@ router.get("/get-user-podcasts",authMiddleware, async(req, res)=>{
     try {
         const { user } =req;
         const userid = user._id;
+        console.log("podcast.js",user + " " + userid);
         const data = await User.findById(userid)
         .populate({
             path:"podcasts",
