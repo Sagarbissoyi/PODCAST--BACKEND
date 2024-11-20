@@ -3,6 +3,7 @@ const User = require("../models/user");
 
 const authMiddleware = async (req, res,next) => {
       const token = req.cookies.podcasterUserToken;
+      console.log("authmiddle",token)
       try {
         if (token) {
             const decode = jwt.verify(token, process.env.JWT_SECRET);
