@@ -5,6 +5,7 @@ const jwt = require("jsonwebtoken");
 const authMiddleware = require("../middleware/authMiddlware");
 
 
+
 //signup - route
 router.post("/sign-up", async(req, res) => {
     try{
@@ -94,10 +95,57 @@ message:"Sign-in  Successfully",
     }
 });
 
+// //Logout
+// router.post("/logout",async(req, res)=>{
+//     res.clearCookie("podcasterUserToken",{
+//         httpOnly:true,
+//     });
+//     res.status(200).json({message:"Logged out"});
+// });
+
+// //check cookie present or not
+// router.get("/check-cookie",async(req, res)=>{
+//   const token = req.cookies.podcasterUserToken;
+//   if(token){
+//   return  res.status(200).json({message:true});
+//   }
+// return  res.status(200).json({message:false});
+// });
+
+// //ROUTE TO FETCH USER DETAILS
+// router.get("/user-details",authMiddleware, async(req, res)=>{
+    
+//     try {
+//          const{email} =req.user;
+//          const existingUser = await User.findOne({email:email}).select( "-password" );  //It means exclude password and give all other details.
+//         return res.status(200).json({
+//             user: existingUser,
+//         });
+//     } catch (error) {
+//         console.log(error);
+//         res.status(500).json({error:error});
+//     }
+//   });
+
+
+
+// module.exports = router;
+
+
+
+
+
+
+
+
+
+
 //Logout
 router.post("/logout",async(req, res)=>{
     res.clearCookie("podcasterUserToken",{
         httpOnly:true,
+        sameSite: "strict",
+        path: "/",
     });
     res.status(200).json({message:"Logged out"});
 });
